@@ -1,0 +1,249 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Online Store</title>
+  <!-- Bulma CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css"
+  />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="#">Online Store</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero is-info">
+    <div class="hero-body">
+      <p class="title">Bienvenue dans notre Boutique en Ligne</p>
+      <p class="subtitle">Découvrez nos produits exceptionnels !</p>
+    </div>
+  </section>
+
+  <!-- Product Grid -->
+  <section class="section">
+    <div class="container">
+      <div class="columns is-multiline">
+        <!-- Product 1 -->
+        <div class="column is-one-third">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image">
+                <img src="img/Nike1.jpg" alt="Product 1" />
+              </figure>
+            </div>
+            <div class="card-content">
+              <p class="title is-4">Survêtement Nike et Doudone</p>
+              <p class="subtitle is-6">199.00 Dt</p>
+              
+              <!-- Size Selection -->
+              <div class="field">
+                <label class="label">Size</label>
+                <div class="control">
+                  <div class="select">
+                    <select id="product1-size">
+                      <option value="S">Small</option>
+                      <option value="M">Medium</option>
+                      <option value="L">Large</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Color Selection -->
+              <div class="field">
+                <label class="label">Color</label>
+                <div class="control">
+                  <div class="select">
+                    <select id="product1-color">
+                      <option value="red">Red</option>
+                      <option value="blue">Blue</option>
+                      <option value="black">Black</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              
+              <button class="button is-primary add-to-cart" data-name="Produit 1" data-price="20">Ajouter au panier</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="column is-one-third">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image">
+                <img src="img/TNF1.jpg" alt="Product 2" />
+              </figure>
+            </div>
+            <div class="card-content">
+              <p class="title is-4">Bonbers The North Face</p>
+              <p class="subtitle is-6">150.00 Dt</p>
+              
+              <!-- Size Selection -->
+              <div class="field">
+                <label class="label">Size</label>
+                <div class="control">
+                  <div class="select">
+                    <select id="product2-size">
+                      <option value="S">Small</option>
+                      <option value="M">Medium</option>
+                      <option value="L">Large</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Color Selection -->
+              <div class="field">
+                <label class="label">Color</label>
+                <div class="control">
+                  <div class="select">
+                    <select id="product2-color">
+                      <option value="green">Green</option>
+                      <option value="yellow">Yellow</option>
+                      <option value="black">Black</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              
+              <button class="button is-primary add-to-cart" data-name="Produit 2" data-price="30">Ajouter au panier</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="column is-one-third">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image">
+                
+                <img src="img/nikeBB1.jpg" alt="Product 3" />
+              </figure>
+            </div>
+            <div class="card-content">
+              <p class="title is-4">Bonbers Nike</p>
+              <p class="subtitle is-6">220.00 Dt</p>
+              
+              <!-- Size Selection -->
+              <div class="field">
+                <label class="label">Size</label>
+                <div class="control">
+                  <div class="select">
+                    <select id="product3-size">
+                      <option value="S">Small</option>
+                      <option value="M">Medium</option>
+                      <option value="L">Large</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Color Selection -->
+              <div class="field">
+                <label class="label">Color</label>
+                <div class="control">
+                  <div class="select">
+                    <select id="product3-color">
+                      <option value="white">White</option>
+                      <option value="black">Black</option>
+                      <option value="gray">Gray</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              
+              <button class="button is-primary add-to-cart" data-name="Produit 3" data-price="40">Ajouter au panier</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shopping Cart -->
+  <section class="section">
+    <div class="container">
+      <h2 class="title">Panier</h2>
+      <table class="table is-fullwidth">
+        <thead>
+          <tr>
+            <th>Produit</th>
+            <th>Prix</th>
+            <th>Quantité</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody id="cart-items">
+          <!-- Cart items go here -->
+        </tbody>
+      </table>
+      <p class="title is-4">Total: <span id="cart-total">0.00 Dt</span></p>
+      <button class="button is-success" id="checkout-button">Passer à la caisse</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>&copy; 2024 Online Store. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script>
+    const cart = [];
+
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+      button.addEventListener('click', () => {
+        const name = button.dataset.name;
+        const price = parseFloat(button.dataset.price);
+        const size = document.getElementById(`product${name.charAt(name.length - 1)}-size`).value;
+        const color = document.getElementById(`product${name.charAt(name.length - 1)}-color`).value;
+        const existingItem = cart.find(item => item.name === name && item.size === size && item.color === color);
+
+        if (existingItem) {
+          existingItem.quantity += 1;
+        } else {
+          cart.push({ name, price, size, color, quantity: 1 });
+        }
+
+        updateCart();
+      });
+    });
+
+    function updateCart() {
+      const cartItems = document.getElementById('cart-items');
+      const cartTotal = document.getElementById('cart-total');
+      cartItems.innerHTML = '';
+      let total = 0;
+
+      cart.forEach(item => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${item.name} (${item.size}, ${item.color})</td>
+          <td>${item.price.toFixed(2)}Dt</td>
+          <td>${item.quantity}</td>
+          <td>${(item.price * item.quantity).toFixed(2)}Dt</td>
+        `;
+        cartItems.appendChild(row);
+        total += item.price * item.quantity;
+      });
+
+      cartTotal.textContent = total.toFixed(2);
+    }
+
+    document.getElementById('checkout-button').addEventListener('click', () => {
+      alert('Redirection vers la page de paiement.');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Menu</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma/css/bulma.min.css">
+    <link rel="stylesheet" href="stylee.css">
+</head>
+<body>
+    <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="#">
+                <strong>Restaurant Name</strong>
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div id="navbarMenu" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="#drinks">Drinks</a>
+                <a class="navbar-item" href="#food">Foods</a>
+                <a class="navbar-item" href="#dessert">Desserts</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="appetizers" class="section menu-section">
+        <div class="container">
+            <h1 class="title has-text-centered">Drinks</h1>
+            <div class="columns is-multiline">
+                <div class="column is-one-third">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="img/JUS.jpg" alt="DrinksImage">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <p class="title is-4">JUS</p>
+                            <p class="subtitle is-6">6 DT</p>
+                            <button class="button is-primary" onclick="openModal('springRollsModal')">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="main-courses" class="section menu-section">
+        <div class="container">
+            <h1 class="title has-text-centered">FOOD</h1>
+            <div class="columns is-multiline">
+                <div class="column is-one-third">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="img/chicken.jpg" alt="Main Course Image">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <p class="title is-4">Grilled Chicken</p>
+                            <p class="subtitle is-6">12 DT</p>
+                            <button class="button is-primary" onclick="openModal('grilledChickenModal')">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="desserts" class="section menu-section">
+        <div class="container">
+            <h1 class="title has-text-centered">Desserts</h1>
+            <div class="columns is-multiline">
+                <div class="column is-one-third">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="img/cheesecake.jpg" alt="Dessert Image">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <p class="title is-4">Cheesecake</p>
+                            <p class="subtitle is-6">$6.99</p>
+                            <button class="button is-primary" onclick="openModal('cheesecakeModal')">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+ 
+
+    <!-- Modals for item details -->
+    <div id="springRollsModal" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="box">
+                <h2 class="title">Spring Rolls</h2>
+                <p>Crispy and delicious spring rolls filled with fresh vegetables.</p>
+                <button class="button is-success">Add to Cart</button>
+            </div>
+        </div>
+        <button class="modal-close is-large" aria-label="close" onclick="closeModal('springRollsModal')"></button>
+    </div>
+
+    <div id="grilledChickenModal" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="box">
+                <h2 class="title">Grilled Chicken</h2>
+                <p>Juicy grilled chicken served with a side of vegetables and mashed potatoes.</p>
+                <button class="button is-success">Add to Cart</button>
+            </div>
+        </div>
+        <button class="modal-close is-large" aria-label="close" onclick="closeModal('grilledChickenModal')"></button>
+    </div>
+
+    <div id="cheesecakeModal" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="box">
+                <h2 class="title">Cheesecake</h2>
+                <p>Creamy cheesecake with a graham cracker crust and fresh berries.</p>
+                <button class="button is-success">Add to Cart</button>
+            </div>
+        </div>
+        <button class="modal-close is-large" aria-label="close" onclick="closeModal('cheesecakeModal')"></button>
+    </div>
+
+    <div id="orangeJuiceModal" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="box">
+                <h2 class="title">Fresh Orange Juice</h2>
+                <p>Refreshing freshly squeezed orange juice.</p>
+                <button class="button is-success">Add to Cart</button>
+            </div>
+        </div>
+        <button class="modal-close is-large" aria-label="close" onclick="closeModal('orangeJuiceModal')"></button>
+    </div>
+
+    <script>
+        // Toggle modal visibility
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('is-active');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('is-active');
+        }
+
+        // Navbar burger toggle
+        document.addEventListener('DOMContentLoaded', () => {
+            const navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+            if (navbarBurgers.length > 0) {
+                navbarBurgers.forEach(el => {
+                    el.addEventListener('click', () => {
+                        const target = el.dataset.target;
+                        const $target = document.getElementById(target);
+
+                        el.classList.toggle('is-active');
+                        $target.classList.toggle('is-active');
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
